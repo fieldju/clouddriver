@@ -322,7 +322,7 @@ public class KubernetesV1Credentials implements KubernetesCredentials {
   @Component
   @RequiredArgsConstructor
   public static class Factory implements KubernetesCredentialFactory<KubernetesV1Credentials> {
-    private final String userAgent;
+    private final String clouddriverUserAgentApplicationName;
     private final Registry spectatorRegistry;
     private final AccountCredentialsRepository accountCredentialsRepository;
     private final ConfigFileService configFileService;
@@ -336,7 +336,7 @@ public class KubernetesV1Credentials implements KubernetesCredentials {
           managedAccount.getContext(),
           managedAccount.getCluster(),
           managedAccount.getUser(),
-          userAgent,
+          clouddriverUserAgentApplicationName,
           managedAccount.isServiceAccount(),
           managedAccount.isConfigureImagePullSecrets(),
           managedAccount.getNamespaces(),
